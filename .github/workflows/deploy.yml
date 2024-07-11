@@ -29,7 +29,8 @@ jobs:
         run: ls -la ./target/
 
       - name: Rename the artifact
-        run: cp SpringBootUserManagement-0.0.1-SNAPSHOT.jar SpringBootUserManagement-${{ github.sha }}.jar
+        run: cp ./target/SpringBootUserManagement-0.0.1-SNAPSHOT.jar ./target/SpringBootUserManagement-${{ github.sha }}.jar
+
 
       - name: Save the artifact
         uses: actions/upload-artifact@v2

@@ -25,6 +25,8 @@ jobs:
 
       - name: Unit Tests
         run: mvn clean package
+      - name: List files in build directory
+        run: ls -la ./target/
 
       - name: Rename the artifact
         run: cp SpringBootUserManagement-0.0.1-SNAPSHOT.jar SpringBootUserManagement-${{ github.sha }}.jar

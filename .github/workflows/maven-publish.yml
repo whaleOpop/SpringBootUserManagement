@@ -7,7 +7,9 @@ on:
 jobs:
   build-and-publish:
 
-    runs-on: ubuntu-latest
+    runs-on:
+      self-hosted
+      Spring
     permissions:
       contents: read
       packages: write

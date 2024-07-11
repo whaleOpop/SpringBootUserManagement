@@ -5,11 +5,9 @@ on:
     branches:
       - main
 
-
 jobs:
   run-unit-tests:
-    runs-on:
-      self-hosted
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,7 +18,7 @@ jobs:
           java-version: '11'
 
       - name: Build with Maven
-        uses: stCarolas/setup-maven@4.4
+        uses: stCarolas/setup-maven@4.3
         with:
           maven-version: 3.8.2
 
@@ -28,11 +26,10 @@ jobs:
         run: mvn clean package
 
       - name: Rename the artifact
-        run: cp SpringBootUserManagement-0.0.1-SNAPSHOT.jar SpringBootUserManagement ${{github.sha}}.jar
+        run: cp SpringBootUserManagement-0.0.1-SNAPSHOT.jar SpringBootUserManagement-${{ github.sha }}.jar
 
       - name: Save the artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: SpringBootUserManagement
-          path: SpringBootUserManagement ${{github.sha}}.jar
-
+          path: SpringBootUserManagement-${{ github.sha }}.jar

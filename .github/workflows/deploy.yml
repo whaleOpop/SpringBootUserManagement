@@ -18,7 +18,7 @@ jobs:
           java-version: '11'
 
       - name: Build with Maven
-        uses: stCarolas/setup-maven@4.3
+        uses: stCarolas/setup-maven@v4.5
         with:
           maven-version: 3.8.2
 
